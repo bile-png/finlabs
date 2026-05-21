@@ -1,0 +1,301 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.gp { font-family: 'DM Sans', sans-serif; color: var(--color-text-primary); padding: 0 0 3rem; }
+
+.hero { background: #0D1B2A; color: #F5F5F5; padding: 3rem 2rem 2.5rem; border-radius: var(--border-radius-lg); margin-bottom: 2rem; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; border-radius: 50%; background: rgba(200,151,58,0.08); }
+.hero::after { content: ''; position: absolute; bottom: -40px; left: 30%; width: 200px; height: 200px; border-radius: 50%; background: rgba(200,151,58,0.05); }
+
+.badge { display: inline-block; background: #C8973A; color: #fff; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1.25rem; }
+
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; line-height: 1.25; color: #F5F5F5; margin-bottom: 0.75rem; max-width: 580px; }
+
+.hero-sub { font-size: 15px; color: #A8BAC8; line-height: 1.7; max-width: 540px; margin-bottom: 1.75rem; }
+
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-tag { background: rgba(200,151,58,0.15); border: 1px solid rgba(200,151,58,0.3); color: #F2C96D; font-size: 12px; padding: 4px 10px; border-radius: 20px; }
+
+.section { margin-bottom: 2rem; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #C8973A; display: inline-block; }
+
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 2rem; }
+.kpi { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 1rem; text-align: center; }
+.kpi-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #C8973A; }
+.kpi-label { font-size: 12px; color: var(--color-text-secondary); margin-top: 4px; line-height: 1.4; }
+
+.includes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.inc-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; }
+.inc-icon { font-size: 22px; color: #C8973A; margin-bottom: 0.75rem; }
+.inc-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 0.4rem; }
+.inc-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; }
+
+.formula-box { background: #0D1B2A; border-radius: var(--border-radius-lg); padding: 1.5rem 2rem; margin-bottom: 2rem; }
+.formula-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #A8BAC8; margin-bottom: 1rem; }
+.formula-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.formula-pill { background: rgba(200,151,58,0.2); border: 1px solid rgba(200,151,58,0.4); color: #F2C96D; font-size: 12px; padding: 5px 12px; border-radius: 20px; font-weight: 500; }
+.formula-op { color: #A8BAC8; font-size: 14px; font-weight: 300; }
+.formula-eq { color: #F5F5F5; font-size: 13px; font-weight: 500; padding-left: 4px; }
+
+.who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.who-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 0.875rem 1rem; display: flex; align-items: center; gap: 10px; }
+.who-icon { font-size: 18px; color: #C8973A; flex-shrink: 0; }
+.who-text { font-size: 13px; color: var(--color-text-primary); font-weight: 500; }
+
+.features-list { display: grid; gap: 10px; }
+.feature-row { display: flex; align-items: flex-start; gap: 12px; padding: 0.875rem 1rem; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); }
+.feature-row .fi { font-size: 18px; color: #C8973A; margin-top: 1px; flex-shrink: 0; }
+.feature-text strong { display: block; font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 2px; }
+.feature-text span { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+
+.bonus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.bonus-card { background: linear-gradient(135deg, #0D1B2A 0%, #152232 100%); border: 1px solid rgba(200,151,58,0.25); border-radius: var(--border-radius-lg); padding: 1.25rem; }
+.bonus-tag { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #C8973A; font-weight: 500; margin-bottom: 0.5rem; }
+.bonus-title { font-size: 13px; font-weight: 500; color: #F5F5F5; margin-bottom: 0.4rem; }
+.bonus-desc { font-size: 12px; color: #A8BAC8; line-height: 1.5; }
+
+.faq-list { display: grid; gap: 10px; }
+.faq-item { padding: 1rem 1.25rem; background: var(--color-background-secondary); border-radius: var(--border-radius-md); border-left: 3px solid #C8973A; }
+.faq-q { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 0.4rem; }
+.faq-a { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; }
+
+.review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.review-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; }
+.stars { color: #C8973A; font-size: 14px; margin-bottom: 0.5rem; letter-spacing: 2px; }
+.review-text { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 0.75rem; font-style: italic; }
+.reviewer { font-size: 12px; font-weight: 500; color: var(--color-text-primary); }
+.reviewer span { color: var(--color-text-secondary); font-weight: 400; }
+
+.cta-bar { background: #0D1B2A; border-radius: var(--border-radius-lg); padding: 2rem; text-align: center; margin-top: 2rem; }
+.cta-bar h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: #F5F5F5; margin-bottom: 0.5rem; }
+.cta-bar p { font-size: 13px; color: #A8BAC8; margin-bottom: 1.25rem; }
+.cta-btn { display: inline-block; background: #C8973A; color: #fff; font-size: 14px; font-weight: 500; padding: 12px 32px; border-radius: 4px; text-decoration: none; letter-spacing: 0.03em; cursor: pointer; border: none; }
+.cta-price { font-size: 11px; color: #A8BAC8; margin-top: 0.75rem; }
+</style>
+
+<div class="gp">
+  <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Gumroad product page for Sales Mix Variance Analysis Excel Tool</h2>
+
+  <div class="hero">
+    <div class="badge">Premium Finance Template</div>
+    <h1>Sales Mix Variance Analysis — Professional FMCG Finance Toolkit</h1>
+    <p class="hero-sub">The only Excel template that fully decomposes Revenue & Contribution Margin variance across Category, Brand, Pack, Channel and Variable Cost. Built to Big 4 standard. Ready in minutes.</p>
+    <div class="hero-tags">
+      <span class="hero-tag"><i class="ti ti-brand-excel" aria-hidden="true"></i> Excel (.xlsx)</span>
+      <span class="hero-tag">20 SKU sample dataset</span>
+      <span class="hero-tag">PDF Study Guide included</span>
+      <span class="hero-tag">Instant download</span>
+      <span class="hero-tag">No macros required</span>
+    </div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-num">6</div><div class="kpi-label">Variance dimensions decomposed</div></div>
+    <div class="kpi"><div class="kpi-num">3</div><div class="kpi-label">Analysis sheets included</div></div>
+    <div class="kpi"><div class="kpi-num">20</div><div class="kpi-label">Pre-loaded sample SKUs</div></div>
+    <div class="kpi"><div class="kpi-num">100%</div><div class="kpi-label">Formula-driven, no VBA</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What's inside the package</div>
+    <div class="includes-grid">
+      <div class="inc-card">
+        <div class="inc-icon"><i class="ti ti-brand-excel" aria-hidden="true"></i></div>
+        <div class="inc-title">Excel Workbook (.xlsx)</div>
+        <div class="inc-desc">3 fully built sheets: Raw Data Input, Sales Mix Variance Analysis, and Contribution Mix Analysis. 100% formula-driven with dynamic ranges for up to 500+ SKUs.</div>
+      </div>
+      <div class="inc-card">
+        <div class="inc-icon"><i class="ti ti-file-description" aria-hidden="true"></i></div>
+        <div class="inc-title">PDF Study Guide</div>
+        <div class="inc-desc">Step-by-step explanation of the mix variance methodology, formula logic, and how to interpret each component. Perfect for Finance teams and self-study.</div>
+      </div>
+      <div class="inc-card">
+        <div class="inc-icon"><i class="ti ti-database" aria-hidden="true"></i></div>
+        <div class="inc-title">20-SKU Sample Dataset</div>
+        <div class="inc-desc">A realistic FMCG dataset across 3 categories, 3 brands, 3 pack types, and 4 channels — ready to use as a reference or replace with your own data.</div>
+      
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">The variance decomposition formula</div>
+    <div class="formula-box">
+      <div class="formula-title">Revenue Variance = sum of all components below</div>
+      <div class="formula-row">
+        <span class="formula-pill">Volume Var</span>
+        <span class="formula-op">+</span>
+        <span class="formula-pill">Price Var</span>
+        <span class="formula-op">+</span>
+        <span class="formula-pill">Category Mix</span>
+        <span class="formula-op">+</span>
+        <span class="formula-pill">Brand Mix</span>
+        <span class="formula-op">+</span>
+        <span class="formula-pill">Pack Mix</span>
+        <span class="formula-op">+</span>
+        <span class="formula-pill">Channel Mix</span>
+      </div>
+      <div style="margin-top: 1rem; border-top: 1px solid rgba(200,151,58,0.2); padding-top: 1rem;">
+        <div class="formula-title">Contribution Margin Variance = sum of all components below</div>
+      <div class="formula-row">
+        <span class="formula-pill">Volume Var</span>
+        <span class="formula-op">+</span>
+        <span class="formula-pill">Price Var</span>
+        <span class="formula-op">+</span>
+        <span class="formula-pill">Category Mix</span>
+        <span class="formula-op">+</span>
+        <span class="formula-pill">Brand Mix</span>
+        <span class="formula-op">+</span>
+        <span class="formula-pill">Pack Mix</span>
+        <span class="formula-op">+</span>
+        <span class="formula-pill">Channel Mix</span>
+	<span class="formula-op">+</span>
+        <span class="formula-pill">Input Cost</span>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Who is this for</div>
+    <div class="who-grid">
+      <div class="who-card"><i class="ti ti-chart-bar" class="who-icon" aria-hidden="true" style="font-size:18px;color:#C8973A;flex-shrink:0"></i><div class="who-text">FP&A Analysts</div></div>
+      <div class="who-card"><i class="ti ti-building" class="who-icon" aria-hidden="true" style="font-size:18px;color:#C8973A;flex-shrink:0"></i><div class="who-text">FMCG Finance Teams</div></div>
+      <div class="who-card"><i class="ti ti-coin" class="who-icon" aria-hidden="true" style="font-size:18px;color:#C8973A;flex-shrink:0"></i><div class="who-text">Commercial Controllers</div></div>
+      <div class="who-card"><i class="ti ti-trending-up" class="who-icon" aria-hidden="true" style="font-size:18px;color:#C8973A;flex-shrink:0"></i><div class="who-text">Revenue Growth Managers</div></div>
+      <div class="who-card"><i class="ti ti-users" class="who-icon" aria-hidden="true" style="font-size:18px;color:#C8973A;flex-shrink:0"></i><div class="who-text">Pricing & Sales Teams</div></div>
+      <div class="who-card"><i class="ti ti-school" class="who-icon" aria-hidden="true" style="font-size:18px;color:#C8973A;flex-shrink:0"></i><div class="who-text">Finance Students</div></div>
+      <div class="who-card"><i class="ti ti-users" class="who-icon" aria-hidden="true" style="font-size:18px;color:#C8973A;flex-shrink:0"></i><div class="who-text">Small Business Owners</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Key features</div>
+    <div class="features-list">
+      <div class="feature-row">
+        <i class="ti ti-layers-subtract fi" aria-hidden="true"></i>
+        <div class="feature-text">
+          <strong>Full 6-level mix decomposition</strong>
+          <span>Hierarchical waterfall: Category → Brand → Pack → Channel. Each level uses correctly nested weighted average budget prices so the components always reconcile to zero residual.</span>
+        </div>
+      </div>
+          <div class="feature-row">
+        <i class="ti ti-calculator fi" aria-hidden="true"></i>
+        <div class="feature-text">
+          <strong>Contribution margin analysis</strong>
+          <span>A dedicated sheet decomposes Contribution Margin variance including variable cost effects — not just revenue. Essential for gross profit reporting.</span>
+        </div>
+      </div>
+      <div class="feature-row">
+        <i class="ti ti-check fi" aria-hidden="true"></i>
+        <div class="feature-text">
+          <strong>Built-in reconciliation check</strong>
+          <span>Every row includes a Check column that confirms Volume + Price + All Mix components = Total Variance. The TOTAL row must always equal zero. If it doesn't, you'll see it instantly.</span>
+        </div>
+      </div>
+      <div class="feature-row">
+        <i class="ti ti-table-plus fi" aria-hidden="true"></i>
+        <div class="feature-text">
+          <strong>Scalable to any SKU count</strong>
+          <span>SUMIFS-based formulas reference the full data range dynamically. Paste in 5 SKUs or 500 — the model expands automatically without breaking any formula.</span>
+        </div>
+      </div>
+      <div class="feature-row">
+        <i class="ti ti-lock-open fi" aria-hidden="true"></i>
+        <div class="feature-text">
+          <strong>Fully unlocked and editable</strong>
+          <span>No passwords, no protected sheets, no macros. Every formula is visible and modifiable. Adapt it to your company's naming conventions, add columns, extend the logic — it's yours.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Bonus materials</div>
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="bonus-tag">Bonus #1</div>
+        <div class="bonus-title">PDF Methodology Guide</div>
+        <div class="bonus-desc">Explains the math behind each variance component with worked examples. Use it to train your team or validate your understanding of the model logic.</div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-tag">Bonus #2</div>
+        <div class="bonus-title">Realistic FMCG Dataset</div>
+        <div class="bonus-desc">A ready-to-use sample with 20 SKUs across Personal Care, Household, and Food & Bev — pre-populated so you can explore the output immediately.</div>
+      </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Frequently asked questions</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What version of Excel do I need?</div>
+        <div class="faq-a">Excel 2016 or later (Windows or Mac). The file uses standard SUMIFS and IFERROR functions — no Power Query, no macros, no add-ins required. Also compatible with LibreOffice.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I add more SKUs or dimensions?</div>
+        <div class="faq-a">Yes. The formulas are built with open-ended SUMIFS ranges. Simply paste additional rows into the Input Area sheet and the calculations update automatically. </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q">Is the methodology aligned with Big 4 / Fortune 500 standards?</div>
+        <div class="faq-a">Yes. The hierarchical weighted-average price decomposition is the standard approach used in FMCG commercial finance. Each mix level (Category → Brand → Pack → Channel) correctly uses the average price from the level above as the reference — ensuring components are additive and reconcile fully.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I use this for a real company's data?</div>
+        <div class="faq-a">Absolutely. Delete the sample data in the Input Area and paste your own Actual and Budget volumes, revenues, and variable costs. The model is built to handle real-world complexity including mixed SKU portfolios, partial periods, and new product launches.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What buyers are saying</div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">"Finally a mix variance template that actually reconciles. I've seen dozens of files where the components don't add up — this one is airtight."</div>
+        <div class="reviewer">Senior FP&A Analyst <span>— FMCG, Netherlands</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">"The PDF guide alone is worth the price. I used it to explain the methodology to my CFO and he was impressed by the level of rigour."</div>
+        <div class="reviewer">Finance Business Partner <span>— Consumer Goods, UK</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">"Saved me two weeks of building from scratch. The 4 mix components (havent seen any so far) is exactly what I was missing in my old model."</div>
+        <div class="reviewer">Commercial Controller <span>— FMCG, Poland</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ CTA FIXED -->
+  <div class="cta-bar">
+    <h3>Ready to transform your variance reporting?</h3>
+    <p>Instant download. Works in Excel 2016+. Fully editable. No macros.</p>
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+      
+      <div style="text-align:left;">
+        <div style="font-size:12px;color:#A8BAC8;text-decoration:line-through;">Was €49</div>
+        <div style="font-family:'Playfair Display',serif;font-size:32px;color:#F2C96D;font-weight:700;">€29</div>
+      </div>
+
+      <!-- ✅ MOST IMPORTANT FIX -->
+      <button class="cta-btn"
+        onclick="window.location.href='https://bmajstorova.gumroad.com/l/gvvhag'">
+        Get instant access →
+      </button>
+
+    </div>
+
+    <p class="cta-price">
+      Excel workbook + PDF Guide + Sample Dataset · One-time payment · Lifetime access
+    </p>
+  </div>
+
+</div>
